@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'quotes.dart';
 
 void main() => runApp(MaterialApp(
   home: Home(),
 ));
-
 
 class Home extends StatefulWidget {
   @override
@@ -12,99 +12,27 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  int count = 0;
+  List<Quote> quotes = [
+    Quote(author: 'Nelson Mandela', text: 'The greatest glory in living lies not in never falling, but in rising every time we fall'),
+    Quote(author: 'Walt Disney', text: 'The way to get started is to quit talking and begin doing.'),
+    Quote(author: 'Eleanor Roosevelt', text: 'If life were predictable it would cease to be life, and be without flavor.'),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Colors.grey,
       appBar: AppBar(
         title: Text('My First App'),
         centerTitle: true,
-        backgroundColor: Colors.grey[850],
+        backgroundColor: Colors.redAccent,
         elevation: 0.0,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            count += 1;
-          });
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.grey[800],
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(20.0, 30.0, 10.0, 0.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/image-1.jpeg'),
-                radius: 40.0,
-              ),
-            ),
-            Divider(
-              height: 40.0,
-              color: Colors.grey[800],
-            ),
-            Text(
-              'NAME',
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'Mohan',
-              style: TextStyle(
-                color: Colors.amberAccent,
-                letterSpacing: 2.0,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30.0),
-            Text(
-              'CURRENT LEVEL',
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              '$count',
-              style: TextStyle(
-                color: Colors.amberAccent,
-                letterSpacing: 2.0,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30.0),
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.email,
-                  color: Colors.grey[400],
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'mohan@francium.tech',
-                  style: TextStyle(
-                    color: Colors.grey[400],
-                    fontSize: 18.0,
-                    letterSpacing: 1.0,
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
+      body: Column(
+        children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(),
       ),
     );
   }
 }
+
 
