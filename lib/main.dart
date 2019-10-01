@@ -5,7 +5,15 @@ void main() => runApp(MaterialApp(
 ));
 
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  int count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +23,15 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            count += 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(20.0, 30.0, 10.0, 0.0),
@@ -58,7 +75,7 @@ class Home extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             Text(
-              '7',
+              '$count',
               style: TextStyle(
                 color: Colors.amberAccent,
                 letterSpacing: 2.0,
