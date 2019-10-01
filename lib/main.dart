@@ -9,40 +9,83 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
         title: Text('My First App'),
         centerTitle: true,
-        backgroundColor: Colors.blueGrey[300],
+        backgroundColor: Colors.grey[850],
+        elevation: 0.0,
       ),
-      body: Row(
-        children: <Widget>[
-          Expanded(
-            child: Container(
-              child: Text('1'),
-              padding: EdgeInsets.all(20.0),
-              color: Colors.blue,
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(20.0, 30.0, 10.0, 0.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/image-1.jpeg'),
+                radius: 40.0,
+              ),
             ),
-          ),
-          Expanded(
-            child: Container(
-              child: Text('2'),
-              padding: EdgeInsets.all(20.0),
-              color: Colors.redAccent,
+            Divider(
+              height: 40.0,
+              color: Colors.grey[800],
             ),
-          ),
-          Expanded(
-            child: Container(
-              child: Text('3'),
-              padding: EdgeInsets.all(20.0),
-              color: Colors.grey,
+            Text(
+              'NAME',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+              ),
             ),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Text('Click'),
-        backgroundColor: Colors.blueGrey[300],
+            SizedBox(height: 10.0),
+            Text(
+              'Mohan',
+              style: TextStyle(
+                color: Colors.amberAccent,
+                letterSpacing: 2.0,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 30.0),
+            Text(
+              'CURRENT LEVEL',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              '7',
+              style: TextStyle(
+                color: Colors.amberAccent,
+                letterSpacing: 2.0,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 30.0),
+            Row(
+              children: <Widget>[
+                Icon(
+                  Icons.email,
+                  color: Colors.grey[400],
+                ),
+                SizedBox(width: 10.0),
+                Text(
+                  'mohan@francium.tech',
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                    fontSize: 18.0,
+                    letterSpacing: 1.0,
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
